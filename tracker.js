@@ -1,7 +1,23 @@
+const quantityOfDailyQuestions = 10;
+const displayQuestionDIV = document.getElementById("display_question");
+const timesDIV = document.getElementById("times");
+
+const arrayOfQuestions =[];
+
 var Question = function () {
-  this.avgTime = "0:00"
+  this.avgTime = "0:00";
   this.times = [];
+
 }
+
+Question.prototype.getAverageTime = function (){
+    var sum = times.reduce(add,0);
+    function add(a,b){
+      return a+b;
+    }
+    this.avgTime = (sum/times.length)
+    return this.avgTime;
+  }
 var array = [ 'Sum All Numbers in a Range',
               'Diff Two Arrays',
               'Roman Numeral Converter',
@@ -18,13 +34,18 @@ var array = [ 'Sum All Numbers in a Range',
               'Sum All Primes',
               'Smallest Common Multiple' ];
 
-var displayQuestionDIV = document.getElementById("display_question");
-var arrayOfQuestions =[];
+
+
+
 for(var i = 0; i<array.length; i++){
   var newObj = new Question();
-  newObj.getInstructions = array[i];
+  newObj.name = array[i];
   arrayOfQuestions.push(newObj);
 }
+arrayOfQuestions[0]["times"].push(1)
+arrayOfQuestions[0]["times"].push(2)
+
+
 
 function printOutObjects(callback,func,amount){
   amount = (amount === undefined) ? arrayOfQuestions.length : amount;
@@ -33,4 +54,5 @@ function printOutObjects(callback,func,amount){
   }
 }
 
-printOutObjects(displayQuestionDIV,"getInstructions",10);
+printOutObjects(displayQuestionDIV,"name",quantityOfDailyQuestions);
+printOutObjects(timesDIV,"times",quantityOfDailyQuestions);
