@@ -1,5 +1,6 @@
 var Question = function () {
-  this.time = "0:00"
+  this.avgTime = "0:00"
+  this.times = [];
 }
 var array = [ 'Sum All Numbers in a Range',
               'Diff Two Arrays',
@@ -24,10 +25,11 @@ for(var i = 0; i<array.length; i++){
   arrayOfQuestions.push(newObj)
 }
 
-function printOutObjects(callback,func){
-  for(var i =0; i<arrayOfQuestions.length; i++){
+function printOutObjects(callback,func,amount){
+  amount = (amount === undefined) ? arrayOfQuestions.length : amount;
+  for(var i =0; i<amount; i++){
     callback.innerHTML += arrayOfQuestions[i][func] + '<br>';
   }
 }
 
-printOutObjects(displayQuestionDIV,"getInstructions");
+printOutObjects(displayQuestionDIV,"getInstructions",10);
