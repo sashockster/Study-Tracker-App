@@ -1,0 +1,8 @@
+
+div#container {
+    width: 100%;
+}
+div.children {
+    width: 33%;
+    float: left;
+}

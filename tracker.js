@@ -1,6 +1,7 @@
 const quantityOfDailyQuestions = 10;
 const displayQuestionDIV = document.getElementById("display_question");
 const timesDIV = document.getElementById("times");
+const avgTimeDIV = document.getElementById("avg_time");
 
 const arrayOfQuestions =[];
 
@@ -11,11 +12,11 @@ var Question = function () {
 }
 
 Question.prototype.getAverageTime = function (){
-    var sum = times.reduce(add,0);
+    var sum = this.times.reduce(add,0);
     function add(a,b){
       return a+b;
     }
-    this.avgTime = (sum/times.length)
+    this.avgTime = (sum/this.times.length)
     return this.avgTime;
   }
 var array = [ 'Sum All Numbers in a Range',
@@ -45,14 +46,16 @@ for(var i = 0; i<array.length; i++){
 arrayOfQuestions[0]["times"].push(1)
 arrayOfQuestions[0]["times"].push(2)
 
-
-
 function printOutObjects(callback,func,amount){
   amount = (amount === undefined) ? arrayOfQuestions.length : amount;
   for(var i =0; i<amount; i++){
+    if(typeof arrayOfQuestions[i][func] == "function"){
+      callback.innerHTML += arrayOfQuestions[i][func]() + '<br>';
+    }else
     callback.innerHTML += arrayOfQuestions[i][func] + '<br>';
   }
 }
 
 printOutObjects(displayQuestionDIV,"name",quantityOfDailyQuestions);
 printOutObjects(timesDIV,"times",quantityOfDailyQuestions);
+printOutObjects(avgTimeDIV,"getAverageTime",quantityOfDailyQuestions);
