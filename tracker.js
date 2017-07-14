@@ -16,13 +16,14 @@ var array = [ 'Sum All Numbers in a Range',
               'Spinal Tap Case',
               'Sum All Odd Fibonacci Numbers',
               'Sum All Primes',
-              'Smallest Common Multiple' ]
+              'Smallest Common Multiple' ];
+
 var displayQuestionDIV = document.getElementById("display_question");
 var arrayOfQuestions =[];
 for(var i = 0; i<array.length; i++){
   var newObj = new Question();
-  newObj.getInstructions = array[i]
-  arrayOfQuestions.push(newObj)
+  newObj.getInstructions = array[i];
+  arrayOfQuestions.push(newObj);
 }
 
 function printOutObjects(callback,func,amount){
