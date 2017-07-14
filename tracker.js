@@ -2,7 +2,6 @@ const quantityOfDailyQuestions = 10;
 const displayQuestionDIV = document.getElementById("display_question");
 const timesDIV = document.getElementById("times");
 const avgTimeDIV = document.getElementById("avg_time");
-
 const arrayOfQuestions =[];
 
 var Question = function () {
@@ -16,7 +15,8 @@ Question.prototype.getAverageTime = function (){
     function add(a,b){
       return a+b;
     }
-    this.avgTime = (sum/this.times.length)
+    this.avgTime = (sum/this.times.length) || 0;
+
     return this.avgTime;
   }
 var array = [ 'Sum All Numbers in a Range',
