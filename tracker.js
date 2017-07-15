@@ -1,25 +1,12 @@
 const quantityOfDailyQuestions = 10;
 const displayQuestionDIV = document.getElementById("display_question");
 const timesDIV = document.getElementById("times");
-const avgTimeDIV = document.getElementById("avg_time");
+const avgTimeDIV =  document.getElementById("avg_time");
+const windowProbButton =  document.getElementById("window_prob");
+
 const arrayOfQuestions =[];
 
-var Question = function () {
-  this.avgTime = "0:00";
-  this.times = [];
-
-}
-
-Question.prototype.getAverageTime = function (){
-    var sum = this.times.reduce(add,0);
-    function add(a,b){
-      return a+b;
-    }
-    this.avgTime = (sum/this.times.length) || 0;
-
-    return this.avgTime;
-  }
-var array = [ 'Sum All Numbers in a Range',
+const array = [ 'Sum All Numbers in a Range',
               'Diff Two Arrays',
               'Roman Numeral Converter',
               'Wherefore art thou',
@@ -36,19 +23,51 @@ var array = [ 'Sum All Numbers in a Range',
               'Smallest Common Multiple' ];
 
 
+const randomDaily = function (){
+  const min = Math.ceil(0);
+  const max = Math.floor(3);
+  return Math.floor(createDate() * (max - min + 1)) + min;
+}
+
+const createDate = function (){
+  const date   =  new Date();
+  const month  =  date.getMonth();
+  const day    =  date.getDate();
+  const year   =  date.getFullYear();
+  return (month+day+year)/10000;
+}
 
 
-for(var i = 0; i<array.length; i++){
-  var newObj = new Question();
+const Question = function () {
+  this.avgTime = "0:00";
+  this.times = [];
+
+}
+
+Question.prototype.getAverageTime = function (){
+    const sum = this.times.reduce(add,0);
+    function add(a,b){
+      return a+b;
+    }
+    this.avgTime = (sum/this.times.length) || 0;
+    return this.avgTime;
+  }
+
+
+
+
+
+for(let i = 0; i<array.length; i++){
+  const newObj = new Question();
   newObj.name = array[i];
   arrayOfQuestions.push(newObj);
 }
-arrayOfQuestions[0]["times"].push(1)
-arrayOfQuestions[0]["times"].push(2)
+arrayOfQuestions[0]["times"].push(1);
+arrayOfQuestions[0]["times"].push(2);
 
 function printOutObjects(callback,func,amount){
   amount = (amount === undefined) ? arrayOfQuestions.length : amount;
-  for(var i =0; i<amount; i++){
+  for(let i =0; i<amount; i++){
     if(typeof arrayOfQuestions[i][func] == "function"){
       callback.innerHTML += arrayOfQuestions[i][func]() + '<br>';
     }else
@@ -59,3 +78,10 @@ function printOutObjects(callback,func,amount){
 printOutObjects(displayQuestionDIV,"name",quantityOfDailyQuestions);
 printOutObjects(timesDIV,"times",quantityOfDailyQuestions);
 printOutObjects(avgTimeDIV,"getAverageTime",quantityOfDailyQuestions);
+
+
+
+$( "window_prob" ).click(function() {
+  alert( "Handler for .click() called." );
+});
+//window.open("https://www.freecodecamp.org/challenges/sum-all-numbers-in-a-range");

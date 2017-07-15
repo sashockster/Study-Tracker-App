@@ -1,8 +1,18 @@
-
 div#container {
     width: 100%;
 }
 div.children {
+    width: 33%;
+    float: left;
+}
+
+div#problem_container {
+    width: 100%;
+    background: black;
+    background: bisque;
+
+}
+div.problem_child {
     width: 33%;
     float: left;
 }
