@@ -6,3 +6,4 @@ const randomDaily = function (){
   const max = Math.floor(40);
   return Math.floor(createDate() * (max - min + 1)) + min;
 }
+//create a function that will display 10
