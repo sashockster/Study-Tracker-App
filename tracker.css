@@ -9,8 +9,6 @@ div.children {
 div#problem_container {
     width: 100%;
     background: black;
-    background: bisque;
-
 }
 div.problem_child {
     width: 33%;

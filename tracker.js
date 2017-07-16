@@ -10,7 +10,7 @@ function onBlur() {
 };
 
 function onFocus(){
-  if(solvingProblem)
+  if(solvingProblem)//this will show the pop up
   console.log("onFocus");
 };
 
