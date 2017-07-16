@@ -3,8 +3,16 @@ const displayQuestionDIV = document.getElementById("display_question");
 const timesDIV = document.getElementById("times");
 const avgTimeDIV =  document.getElementById("avg_time");
 const windowProbButton =  document.getElementById("window_prob");
-
 const arrayOfQuestions =[];
+let solvingProblem=false;
+function onBlur() {
+  console.log("onBlur");
+};
+
+function onFocus(){
+  if(solvingProblem)
+  console.log("onFocus");
+};
 
 const array = [ 'Sum All Numbers in a Range',
               'Diff Two Arrays',
@@ -25,7 +33,7 @@ const array = [ 'Sum All Numbers in a Range',
 
 const randomDaily = function (){
   const min = Math.ceil(0);
-  const max = Math.floor(3);
+  const max = Math.floor(40);
   return Math.floor(createDate() * (max - min + 1)) + min;
 }
 
@@ -80,8 +88,9 @@ printOutObjects(timesDIV,"times",quantityOfDailyQuestions);
 printOutObjects(avgTimeDIV,"getAverageTime",quantityOfDailyQuestions);
 
 
-
-$( "window_prob" ).click(function() {
-  alert( "Handler for .click() called." );
+windowProbButton.addEventListener("click", function(){
+  window.onfocus = onFocus;
+  //window.onblur = onBlur;
+  solvingProblem =true;
+  window.open("https://www.freecodecamp.org/challenges/sum-all-numbers-in-a-range");
 });
-//window.open("https://www.freecodecamp.org/challenges/sum-all-numbers-in-a-range");
