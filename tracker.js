@@ -4,152 +4,189 @@ const timesDIV = document.getElementById("times");
 const avgTimeDIV =  document.getElementById("avg_time");
 const windowProbButton =  document.getElementById("window_prob");
 const arrayOfQuestions =[];
+const linkHTML = "a"
 let solvingProblem=false;
 
 const array = [
                 {
                   name : 'Sum All Numbers in a Range',
-                  link : 'https://www.freecodecamp.org/challenges/sum-all-numbers-in-a-range'
+                  link : 'https://www.freecodecamp.org/challenges/sum-all-numbers-in-a-range',
+                  times : []
                 },
                 {
                   name : 'Diff Two Arrays',
-                  link : "https://www.freecodecamp.org/challenges/diff-two-arrays"
+                  link : "https://www.freecodecamp.org/challenges/diff-two-arrays",
+                  times : []
                 },
                 {
                   name : 'Roman Numeral Converter',
-                  link : "https://www.freecodecamp.org/challenges/roman-numeral-converter"
+                  link : "https://www.freecodecamp.org/challenges/roman-numeral-converter",
+                  times : []
                 },
                 {
                   name: 'Wherefore art thou',
-                  link : 'https://www.freecodecamp.org/challenges/wherefore-art-thou'
+                  link : 'https://www.freecodecamp.org/challenges/wherefore-art-thou',
+                  times : []
                 },
                 {
                   name: 'Search and Replace',
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name: 'Pig Latin',
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name: 'DNA Pairing',
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name: 'Missing letters',
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name: 'Boo who',
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name: 'Sorted Union',
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name: 'Convert HTML Entities',
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name: 'Spinal Tap Case',
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name: 'Sum All Odd Fibonacci Numbers',
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name: 'Sum All Primes',
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name: 'Smallest Common Multiple',
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name : "Reverse",
-                  link : "https://repl.it/HaJU"
+                  link : "https://repl.it/HaJU",
+                  times : []
                 },
                 {
                   name : "Factorial",
-                  link : "https://repl.it/HaJO"
+                  link : "https://repl.it/HaJO",
+                  times : []
                 },
                 {
                   name : "Longest Word",
-                  link : "https://repl.it/H7HZ/1"
+                  link : "https://repl.it/H7HZ/1",
+                  times : []
                 },
                 {
                   name: "Sum Nums",
-                  link :  ''
+                  link :  'https://repl.it/HaIs',
+                  times : []
                 },
                 {
                   name: "Time Conversion",
-                  link :  ''
+                  link :  'https://repl.it/HaJg',
+                  times : []
                 },
                 {
                   name: "Count Vowels",
-                  link :  ''
+                  link :  'https://repl.it/HaK8/1',
+                  times : [5]
                 },
                 {
                   name: "Palindrome",
-                  link :  ''
+                  link :  'https://repl.it/HaKw/2',
+                  times : []
                 },
                 {
                   name: "Nearby AZ",
-                  link :  ''
+                  link :  'https://repl.it/HaLe/0',
+                  times : []
                 },
                 {
                   name: "Two Sum",
-                  link :  ''
+                  link :  'https://repl.it/HaLr/1',
+                  times : []
                 },
                 {
                   name: "Is Power of 2?",
-                  link :  ''
+                  link :  'https://repl.it/HaMG/1',
+                  times : []
                 },
                 {
                   name: "Third Greatest",
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name : "Most Common Letter",
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name : "Dasherize Number",
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name : "Capitalize Words",
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name : "Scramble String",
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name : "Is Prime?",
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name : "Nth Prime",
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name : "Longest Palindrome",
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name : "Greatest Common Factor",
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name : "Caesar Cipher",
-                  link :  ''
+                  link :  '',
+                  times : []
                 },
                 {
                   name: "Number of Repeated Letters",
-                  link :  ''
+                  link :  '',
+                  times : []
                 }
             ];
 
@@ -169,9 +206,9 @@ const createDate = function (){
 }
 
 
-const Question = function (name,link) {
+const Question = function (name,link,times) {
   this.avgTime = "0:00";
-  this.times = [];
+  this.times = times;
   this.link = link;
   this.name = name;
 
@@ -197,35 +234,41 @@ Question.prototype.getAverageTime = function (){
 
 
 for(let i = 0; i<array.length; i++){
-  const newObj = new Question(array[i].name, array[i].link);
+  const newObj = new Question(array[i].name, array[i].link, array[i].times);
   arrayOfQuestions.push(newObj);
 }
 
 arrayOfQuestions[0]["times"].push(1);
 arrayOfQuestions[0]["times"].push(2);
 
-function printOutObjects(callback,func,amount){
+function printOutObjects(div,callback,amount){
   amount = (amount === undefined) ? arrayOfQuestions.length : amount;
   for(let i =0; i<amount; i++){
-    if(typeof arrayOfQuestions[i][func] == "function"){
+    var random = Math.floor(Math.random() * ((arrayOfQuestions.length-1) - 0 + 1)) + 0;
+    if(typeof arrayOfQuestions[random][callback] == "function"){
       //will execute functions
+      div.innerHTML += arrayOfQuestions[random][callback]()  + '<br>' ;
+    }else if(div == displayQuestionDIV){
+      createDynamicHTMLElement(linkHTML,arrayOfQuestions[random],div, "problem_names")
 
-      callback.innerHTML += arrayOfQuestions[i][func]() + '<br>';
     }else{
       //will display variables
-    callback.innerHTML += arrayOfQuestions[i][func] + '<br>';
+    div.innerHTML += arrayOfQuestions[random][callback] + '<br>' ;
     }
   }
 }
 
-function createDynamicHTMLElement(element,obj,parent){
-
+function createDynamicHTMLElement(element,obj,parent,className,idName){
+  var div = document.createElement("div");
+  div.className = "div_"+className;
   var a = document.createElement(element);
-  var t = document.createTextNode(obj.title);
+  var t = document.createTextNode(obj.name);
   a.appendChild(t);
+  a.className = className;
   a.href = obj.link;
-  parent.appendChild(a)
-
+  a.target = "_blank"
+  div.appendChild(a);
+  parent.appendChild(div)
 }
 
 printOutObjects(displayQuestionDIV,"name",quantityOfDailyQuestions);
