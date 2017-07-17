@@ -6,12 +6,12 @@ const windowProbButton =  document.getElementById("window_prob");
 const arrayOfQuestions =[];
 const linkHTML = "a"
 let solvingProblem=false;
-
+let randomArrayIndex = [];
 const array = [
                 {
                   name : 'Sum All Numbers in a Range',
                   link : 'https://www.freecodecamp.org/challenges/sum-all-numbers-in-a-range',
-                  times : []
+                  times : [9]
                 },
                 {
                   name : 'Diff Two Arrays',
@@ -101,7 +101,7 @@ const array = [
                 {
                   name: "Sum Nums",
                   link :  'https://repl.it/HaIs',
-                  times : []
+                  times : [1]
                 },
                 {
                   name: "Time Conversion",
@@ -121,7 +121,7 @@ const array = [
                 {
                   name: "Nearby AZ",
                   link :  'https://repl.it/HaLe/0',
-                  times : []
+                  times : [3]
                 },
                 {
                   name: "Two Sum",
@@ -238,22 +238,33 @@ for(let i = 0; i<array.length; i++){
   arrayOfQuestions.push(newObj);
 }
 
-arrayOfQuestions[0]["times"].push(1);
-arrayOfQuestions[0]["times"].push(2);
 
+
+function createTenRandom(amount){
+  var array =[];
+  for(var i =0; i<amount; i++){
+    array.push(Math.floor(Math.random() * ((arrayOfQuestions.length-1) - 0 + 1)) + 0)
+  }
+  return array;
+}
+
+randomArrayIndex = createTenRandom(quantityOfDailyQuestions);
 function printOutObjects(div,callback,amount){
-  amount = (amount === undefined) ? arrayOfQuestions.length : amount;
+
+
+  var amount = (amount === undefined) ? arrayOfQuestions.length : amount;
+
+
   for(let i =0; i<amount; i++){
-    var random = Math.floor(Math.random() * ((arrayOfQuestions.length-1) - 0 + 1)) + 0;
-    if(typeof arrayOfQuestions[random][callback] == "function"){
+    if(typeof arrayOfQuestions[randomArrayIndex[i]][callback] == "function"){
       //will execute functions
-      div.innerHTML += arrayOfQuestions[random][callback]()  + '<br>' ;
+      div.innerHTML += arrayOfQuestions[randomArrayIndex[i]][callback]()  + '<br>' ;
     }else if(div == displayQuestionDIV){
-      createDynamicHTMLElement(linkHTML,arrayOfQuestions[random],div, "problem_names")
+      createDynamicHTMLElement(linkHTML,arrayOfQuestions[randomArrayIndex[i]],div, "problem_names")
 
     }else{
       //will display variables
-    div.innerHTML += arrayOfQuestions[random][callback] + '<br>' ;
+    div.innerHTML += arrayOfQuestions[randomArrayIndex[i]][callback] + '<br>' ;
     }
   }
 }
