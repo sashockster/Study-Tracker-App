@@ -160,7 +160,7 @@ const array = [
                 },
                 {
                   name : "Is Prime?",
-                  link :  '',
+                  link :  'https://repl.it/HaZW/2',
                   times : []
                 },
                 {
