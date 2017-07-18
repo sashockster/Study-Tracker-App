@@ -50,8 +50,8 @@ const array = [
                 },
                 {
                   name: 'Boo who',
-                  link :  '',
-                  times : []
+                  link :  'https://www.freecodecamp.org/challenges/boo-who',
+                  times : [2]
                 },
                 {
                   name: 'Sorted Union',
