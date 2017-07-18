@@ -135,8 +135,8 @@ const array = [
                 },
                 {
                   name: "Third Greatest",
-                  link :  '',
-                  times : []
+                  link :  'https://repl.it/HaMP/14',
+                  times : [18]
                 },
                 {
                   name : "Most Common Letter",
