@@ -121,7 +121,7 @@ const array = [
                 {
                   name: "Nearby AZ",
                   link :  'https://repl.it/HaLe/0',
-                  times : [3]
+                  times : [3,4]
                 },
                 {
                   name: "Two Sum",
@@ -150,8 +150,8 @@ const array = [
                 },
                 {
                   name : "Capitalize Words",
-                  link :  '',
-                  times : []
+                  link :  'https://repl.it/HaRR',
+                  times : [7]
                 },
                 {
                   name : "Scramble String",
